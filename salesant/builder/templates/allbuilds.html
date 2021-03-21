@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome5-overrides.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom-buttons.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Modal-commerce-popup-button-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Modal-commerce-popup-button.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navbar---Apple-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navbar---Apple.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Toggle-Switch-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Toggle-Switch.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/x-dropdown.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/Drag.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/builder.css' %}">
+</head>
+
+<body id="page-top" style="background-color: #363538;color: #000000;">
+
+
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark navbar--apple" style="filter: blur(0px);">
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#menu"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"><i class="la la-navicon"></i></span></button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="index.html"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="builder.html">Builder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="triggers.html">Triggers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="apiservice.html">API Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="taggenerator.html">Tag Generator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#buyport">Buy</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="login.html" style="color: #ff4f00;">&nbsp;Logout</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, User</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper" style="background-color: transparent;">
+            <div class="container-fluid" id="buildport" style="padding: 8px 12px;background: #ffffff;">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="padding-right: 30px;">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                            </div>
+                        </form>
+                        <ul class="navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown no-arrow"><a href="/builder" class="btn btn-primary border-white d-lg-flex flex-row justify-content-lg-center align-items-lg-center py-0" role="button" data-aos="fade-right" data-aos-delay="500" style="background-color: #000000;width: auto;height: 31px;margin-right: 3px;margin-left: 3px;" href="#content"><i class="far fa-hand-rock d-lg-flex flex-row justify-content-lg-center" style="padding-right: 5px;height: 23px;width: 22px;font-size: 21px;color: #fcfafa;margin-right: 5px;"></i><label style="font-size: 13px;margin: 0px;">Builder</label></a></li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center dropdown no-arrow" style="color: rgb(0,0,0);font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-bricks d-lg-flex justify-content-lg-center" data-aos="fade-up" data-aos-delay="100" style="padding: 5px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;font-size: 22px;color: #6a8a82;padding-top: 2px;width: 30px;height: 30px;">
+                                    <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5v-3zM3 4v2h4.5V4H3zm5.5 0v2H13V4H8.5zM3 10v2h4.5v-2H3zm5.5 0v2H13v-2H8.5zM1 1v2h3.5V1H1zm4.5 0v2H15V1H5.5zM1 7v2h3.5V7H1zm4.5 0v2h5V7h-5zm6 0v2H15V7h-3.5zM1 13v2h3.5v-2H1zm4.5 0v2h5v-2h-5zm6 0v2H15v-2h-3.5z"></path>
+                                </svg>
+                                <h5 class="d-lg-flex" data-aos="fade-left" style="font-weight: bold;margin-bottom: 0px;">Builds by You</h5>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <h3 class="text-dark mb-0" style="padding: 0px;margin-left: 8px;margin-top: 2px;margin-bottom: 0px;">Builds</h3>
+                <div class="alert alert-success" role="alert" style="margin-top: 16px;"><span><strong>Alert</strong> text.</span></div>
+                <div class="alert alert-success" role="alert" style="margin-top: 16px;background: rgb(244,210,210);"><span style="border-color: rgb(104,15,15);color: rgb(104,15,15);"><strong>Alert</strong> text.</span></div>
+                <div class="row" style="margin-top: 7px;">
+                    <div class="col-8">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0" style="width: auto;"><a data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn" href="#" role="button" style="background: #2da22d;color: rgb(255,255,255);margin-right: 10px;" title="Activate Trigger"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-hdd-rack-fill">
+                                            <path fill-rule="evenodd" d="M2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H2zm.5 3a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm.5 3a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 9V7h1v2H3zm9 0V7h1v2h-1z"></path>
+                                        </svg></a>Builds</h6>
+                            </div>
+                            <div class="card-body">
+                                {% for b in build %}
+                                <div class="row">
+                                    <div class="col d-md-flex justify-content-md-start align-items-md-center"><label class="col-form-label">{{ b.build_name}}</label></div>
+                                    <div class="col d-md-flex justify-content-md-end align-items-md-center">
+                                        <!--Build Delete Form--><form id="BuildDelete" method="POST" action="builddelete">{% csrf_token %} <input type="hidden" value="{{ b.build_name }}" name="BuildName"><input type="hidden" name="BuildId" value="{{ b.id }}"></form>
+                                        <!--Build Build Frame Edit Form--><form id="BuildFrameEdit" method="POST" action="/builder/">{% csrf_token %} <input type="hidden" value="{{ b.build_name }}" name="BuildName"><input type="hidden" name="BuildId" value="{{ b.id }}"></form>
+                                        <div class="d-md-flex justify-content-md-center mail-custom-btn"><a data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn" href="#" role="button" title="Edit"><i class="fa fa-edit"></i></a><a data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn" href="#" role="button" title="Action"><i class="fa fa-send"></i></a><a onclick="BuildDelete('{{ b.build_name}}')" data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn" href="#" role="button" title="Delete"><i class="fa fa-trash"></i></a><a onclick="BuildFrameEdit()" data-toggle="tooltip" data-bss-tooltip="" data-aos="flip-up" class="custom-btn light-btn" href="#content" role="button" title="Builder" style="background: #000000;"><i class="fa fa-hand-grab-o" style="color: rgb(255,255,255);"></i></a></div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0">Build Edit</h6>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row" style="margin-bottom: 15px;">
+                                        <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Build Name</label></div>
+                                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input class="form-control" type="text" style="background-color: #f9f8f8;" required=""></div>
+                                    </div>
+                                    <div class="form-row" style="margin-bottom: 15px;">
+                                        <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Alias</label></div>
+                                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input class="form-control" type="text" style="background-color: #f9f8f8;" required=""></div>
+                                    </div>
+                                    <div class="form-row" style="margin-bottom: 15px;">
+                                        <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Trigger Limit</label></div>
+                                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input class="form-control" type="number" style="background-color: rgb(249,248,248);"></div>
+                                    </div>
+                                    <div class="form-row" style="margin-bottom: 15px;">
+                                        <div class="col d-lg-flex justify-content-lg-end align-items-lg-center"><button class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;"><i class="fa fa-save" style="padding: 4px;"></i>Save</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/chart.min.js' %}"></script>
+    <script src="{% static 'assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{% static 'assets/js/Modal-commerce-popup-button.js' %}"></script>
+    <script src="{% static 'assets/js/Navbar---Apple.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/Drag.js' %}"></script>
+    <script src="{% static 'assets/AfterDrag.js' %}"></script>
+    <script src="{% static 'assets/builder.js' %}"></script>
+    <script src="{% static 'allbuilds.js' %}"></script>
+</body>
+
+</html>

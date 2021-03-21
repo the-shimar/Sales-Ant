@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Index</title>
+</head>
+<body>
+    {% load static %}
+    <form id="BSaveForm" method="POST" action="builder/savebuild">{% csrf_token %}
+        <input type='hidden' id='BName' name='BName' />
+        <input type='text' id='BHtml' name='BHtml' style="display: none;" />
+        <input type='hidden' id='BUser' name='BUser' />
+    </form>
+    <button onclick="Save('newdiv')">Save</button>
+    
+    <div id="newdiv">
+        <h1>Shimar</h1>
+        <h2>Shimar</h2>
+        <h3>Shimar</h3>
+    </div>
+    <p>////////////////////////////////////////////////////////</p>
+        {% for bd in build %}
+        <h1>New Build</h1>
+            <h2>{{ bd.build_name }}</h2>
+            {{ bd.build | safe }}
+            {{ bd.build }}
+            <p>*************************************************************</p>
+        {% endfor %}
+    <script src="{% static 'BuildSaver.js' %}"></script>
+</body>
+</html>
