@@ -49,3 +49,11 @@
 .btn.btn-primary.build_to_list {
 }
 
+.col-6.dragelementhover:hover {
+  color: rgba(0,0,0,0.42);
+}
+
+.dragelementhover:hover {
+  background-color: rgb(0,0,0);
+}
+

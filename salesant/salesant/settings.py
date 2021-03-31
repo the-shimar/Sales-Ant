@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'apikey.apps.ApikeyConfig',
+    'tags.apps.TagsConfig',
     'triggers.apps.TriggersConfig',
     'builder.apps.BuilderConfig',
     'django.contrib.admin',
@@ -124,3 +126,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'

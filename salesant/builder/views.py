@@ -25,10 +25,10 @@ def saveBuildJS(request):
 
 def buildDelete(request):
     if request.method == 'POST':
-        print(f'POST: All Builds of {request.POST["BuildName"]} & {request.POST["BuildId"]}')
+        print(f'POST: All Builds of {request.POST["BuildName"]}')
         try:
-            Build.objects.get(build_name=request.POST['BuildName'], id=request.POST['BuildId']).delete()
-            print(f'Deleted: {request.POST["build_name"]}')
+            Build.objects.get(build_name=request.POST['BuildName']).delete()
+            print(f'Deleted: {request.POST["BuildName"]}')
         except:
             print('Not Found!')
     return redirect('/builder/builds')
@@ -37,13 +37,13 @@ def builder(request):
     is_post = False
     if request.method == 'POST':
         try:
-            build = Build.objects.get(build_name=request.POST['BuildName'], id=request.POST['BuildId'])
+            build = Build.objects.get(build_name=request.POST['BuildName'])
             is_post = True
             print(f'build: {build}')
             return render(request, 'builder.html', {'is_post': is_post, 'build': build })
-        except:
+        except Exception as e:
             redirect('/builder/builds')
-            print("Opps! Build POST")
+            print(f"Opps! Build POST, Error: {e}")
     return render(request, 'builder.html', {'is_post': is_post})
 
 def allBuilds(request):

@@ -65,8 +65,10 @@
             <div class="col-auto" style="width: 88%;padding: 0px;background-color: #f8f9fc;">
                 <div class="container-fluid" style="padding: 8px 12px;">
                     <h3 class="text-dark mb-0" style="padding: 0px;margin-left: 8px;margin-top: 2px;margin-bottom: 0px;">Create Trigger</h3>
+                    <!--                     
                     <div class="alert alert-success" role="alert" style="margin-top: 16px;"><span><strong>Alert</strong> text.</span></div>
                     <div class="alert alert-success" role="alert" style="margin-top: 16px;background: rgb(244,210,210);"><span style="border-color: rgb(104,15,15);color: rgb(104,15,15);"><strong>Alert</strong> text.</span></div>
+                     -->
                     <div class="row" style="margin-top: 7px;">
                         <div class="col-8">
                             <div class="card mb-4">
@@ -74,65 +76,35 @@
                                     <h6 class="m-0">Trigger</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form  id="TriggerSaveForm" method="POST" action="/triggers/create/">{% csrf_token %}
                                         <div class="form-row" style="margin-bottom: 15px;">
-                                            <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Build Name</label></div>
-                                            <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input class="form-control" type="text" style="background-color: #f9f8f8;" required="" readonly="">
-                                                <div class="text-center"><a class="bs4_modal_trigger" href="#" data-modal-id="bs4_sngl_cmrce" data-toggle="modal">Choose</a>
-                                                    <div id="bs4_sngl_cmrce" class="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sngl_cmrce" role="dialog" data-modal-backdrop="true" data-show-on="click" data-modal-delay="false" data-modal-duration="false">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content"><a class="bs4_btn_x_out_shtr bs4_sngl_cmrce_close" href="#" data-dismiss="modal">close</a>
-                                                                <div class="row">
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Name</label></div>
+                                            <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input name="TriggerName" class="form-control" type="text" style="background-color: rgb(249,248,248);" required></div>
                                         </div>
                                         <div class="form-row" style="margin-bottom: 15px;">
-                                            <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Trigger Type</label></div>
-                                            <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input class="form-control" type="text" style="background-color: #f9f8f8;" required="" readonly="">
-                                                <div class="text-center"><a class="bs4_modal_trigger" href="#" data-modal-id="bs4_sngl_cmrce" data-toggle="modal">Choose</a>
-                                                    <div id="bs4_sngl_cmrce" class="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sngl_cmrce" role="dialog" data-modal-backdrop="true" data-show-on="click" data-modal-delay="false" data-modal-duration="false">
+                                            <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Build</label></div>
+                                            <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input name="TriggerBuild" id="BuildValueInput" class="form-control" type="text" style="background-color: #f9f8f8;" required="" readonly="">
+                                                <div class="text-center"><a class="bs4_modal_trigger" href="#" data-modal-id="BuildModal" data-toggle="modal">Choose</a>
+                                                    <div id="BuildModal" class="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sngl_cmrce" role="dialog" data-modal-backdrop="true" data-show-on="click" data-modal-delay="false" data-modal-duration="false">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content"><a class="bs4_btn_x_out_shtr bs4_sngl_cmrce_close" href="#" data-dismiss="modal">close</a>
                                                                 <div class="row">
-                                                                    <div class="col-12 col-md-5">
-                                                                        <div class="bs4_sngl_cmrce_img"><img src="assets/img/bs4_single_commerce_01.png" alt="bs4_single_commerce_01"></div>
-                                                                    </div>
-                                                                    <div class="col-12 col-md-7" style="padding-bottom: 30px;">
-                                                                        <div class="bs4_sngl_cmrce_txt">
-                                                                            <h1>name of product, company plus modal number</h1>
-                                                                            <ul>
-                                                                                <li><i class="fa fa-star rate-star"></i></li>
-                                                                                <li><i class="fa fa-star rate-star"></i></li>
-                                                                                <li><i class="fa fa-star rate-star"></i></li>
-                                                                                <li><i class="fa fa-star rate-star"></i></li>
-                                                                                <li><i class="fa fa-star-half-full rate-star"></i></li>
+                                                                    <div class="col">
+                                                                        <!--Here-->
+                                                                        <div class="card-body">
+                                                                            <h1>Your Builds</h1>
+                                                                            <ul class="list-group">
+                                                                                {% for build in builder_list %}
+                                                                                <li class="list-group-item">
+                                                                                    <a onclick="buildValue('{{ build.build_name }}')">
+                                                                                        <div class="row">
+                                                                                            <div class="col d-md-flex justify-content-md-center align-items-md-center"><span>{{ build.build_name }}</span></div>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </li>
+                                                                                {% endfor %}
                                                                             </ul>
-                                                                            <h2>130.00</h2>
-                                                                            <p class="text-left" style="padding-top: 15px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa.</p>
-                                                                            <form class="d-xl-flex" action="#" style="padding-top: 15px;">
-                                                                                <div class="bs4_form_num" style="padding-top: 15px;"><label>quantity</label><input class="form-control" type="number" min="1" max="20"></div>
-                                                                                <div class="bs4_form_color" style="padding-top: 15px;"><label>colours</label><select class="form-control form-control-sm">
-                                                                                        <optgroup label="Pick a color">
-                                                                                            <option value="12" selected="">red</option>
-                                                                                            <option value="13">green</option>
-                                                                                            <option value="14">blue</option>
-                                                                                        </optgroup>
-                                                                                    </select></div>
-                                                                                <div class="bs4_form_size&quot;" style="margin-left: 15px;margin-top: 15px;"><label>Pick your size</label><select class="form-control" name="size" style="max-width: 128px;">
-                                                                                        <optgroup label="Select size">
-                                                                                            <option value="12" selected="">10</option>
-                                                                                            <option value="13">12</option>
-                                                                                            <option value="14">14</option>
-                                                                                        </optgroup>
-                                                                                    </select></div>
-                                                                            </form>
                                                                         </div>
-                                                                        <div class="bs4_form_cmrce_btn" style="padding-left: 20px;"><button class="btn btn-primary d-flex justify-content-start bs4_btn_x_out_shtr" type="submit">ADD TO CART</button></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -142,11 +114,43 @@
                                             </div>
                                         </div>
                                         <div class="form-row" style="margin-bottom: 15px;">
-                                            <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Trigger Limit</label></div>
-                                            <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input class="form-control" type="number" style="background-color: rgb(249,248,248);"></div>
+                                            <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Action</label></div>
+                                            <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input name="TriggerType" id="TriggerValueInput" class="form-control" type="text" style="background-color: #f9f8f8;" required="" readonly="">
+                                                <div class="text-center"><a class="bs4_modal_trigger" href="#" data-modal-id="TriggerModal" data-toggle="modal">Choose</a>
+                                                    <div id="TriggerModal" class="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sngl_cmrce" role="dialog" data-modal-backdrop="true" data-show-on="click" data-modal-delay="false" data-modal-duration="false">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content"><a class="bs4_btn_x_out_shtr bs4_sngl_cmrce_close" href="#" data-dismiss="modal">close</a>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <!--Here-->
+                                                                        <div class="card-body">
+                                                                            <h1>Trigger Types</h1>
+                                                                            <ul class="list-group">
+                                                                                {% for trg in triggers_list %}
+                                                                                <li class="list-group-item">
+                                                                                    <a onclick="triggerValue('{{ trg.trigger_type }}')">
+                                                                                        <div class="row">
+                                                                                            <div class="col d-md-flex justify-content-md-center align-items-md-center"><span>{{ trg.trigger_type }}</span></div>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </li>
+                                                                                {% endfor %}
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-row" style="margin-bottom: 15px;">
-                                            <div class="col d-lg-flex justify-content-lg-end align-items-lg-center"><button class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;"><i class="fa fa-save" style="padding: 4px;"></i>Save Trigger</button></div>
+                                            <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Limit</label></div>
+                                            <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input name="TriggerLimit" class="form-control" type="number" style="background-color: rgb(249,248,248);"></div>
+                                        </div>
+                                        <div class="form-row" style="margin-bottom: 15px;">
+                                            <div class="col d-lg-flex justify-content-lg-end align-items-lg-center"><button onclick="SaveTrigger()" class="btn btn-primary d-lg-flex" type="button" style="margin-right: 8px;"><i class="fa fa-save" style="padding: 4px;"></i>Save Trigger</button></div>
                                         </div>
                                     </form>
                                 </div>
@@ -159,18 +163,14 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-group">
+                                        {% for utrig in user_trigger %}
                                         <li class="list-group-item">
                                             <div class="row">
-                                                <div class="col d-md-flex justify-content-md-start align-items-md-center"><span>Trigger 1</span></div>
+                                                <div class="col d-md-flex justify-content-md-start align-items-md-center"><span>{{ utrig.name }}</span></div>
                                                 <div class="col d-md-flex justify-content-md-end align-items-md-center"><a class="btn btn-success d-md-flex align-items-md-center btn-circle ml-1" role="button" style="width: 30px;height: 30px;"><i class="fas fa-check text-white"></i></a></div>
                                             </div>
                                         </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col d-md-flex justify-content-md-start align-items-md-center"><span>Trigger 2</span></div>
-                                                <div class="col d-md-flex justify-content-md-end align-items-md-center"><a class="btn btn-warning btn-circle ml-1" role="button" style="width: 30px;height: 30px;"><i class="fas fa-exclamation-triangle text-white"></i></a></div>
-                                            </div>
-                                        </li>
+                                        {% endfor %}                                       
                                     </ul>
                                 </div>
                             </div>
@@ -199,6 +199,8 @@
     <script src="{% static 'assets/js/Modal-commerce-popup-button.js' %}"></script>
     <script src="{% static 'assets/js/Navbar---Apple.js' %}"></script>
     <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'triggers.js' %}"></script>
+
 </body>
 
 </html>
