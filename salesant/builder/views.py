@@ -49,3 +49,6 @@ def builder(request):
 def allBuilds(request):
     build = Build.objects.all()
     return render(request, 'allbuilds.html', {'build': build})
+
+def templates_made(request):
+    return render(request, 'temps/yn_form.html')

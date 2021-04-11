@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'data_collected.apps.DataCollectedConfig',
     'apikey.apps.ApikeyConfig',
     'tags.apps.TagsConfig',
     'triggers.apps.TriggersConfig',
@@ -129,3 +130,5 @@ STATIC_ROOT = 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

@@ -39,7 +39,15 @@ function onDrop(event) {
     obj.style.maxWidth = '100%';
 
     // obj.setAttribute("onclick", "ElementSelected("+ obj.id+","+ id +")"); //Here id = Type, this for options
+    
+    //For Image
+    if (id == 'DragImg') {
+        obj.setAttribute("onclick", "ElementSelected('"+ obj.id+"','"+ "NBIMAGE_Row" +"')"); //Here id = Type, this for options
+    }
+    else {
     obj.setAttribute("onclick", "ElementSelected('"+ obj.id+"','"+ id +"')"); //Here id = Type, this for options
+    }
+
     obj.classList.add('Element');
     
     const dropzone = event.target;  
@@ -47,9 +55,9 @@ function onDrop(event) {
 
     //Delete Button:Hover
     console.log('Hellooo: '+obj.id)
-    var span = document.createElement('span');
-    span.innerHTML = "<button class='delete' onclick=RemoveSpecificObj('"+ obj.id + "')>Delete</button>"
-    document.getElementById(obj.id).appendChild(span)
+    // var span = document.createElement('span');
+    // span.innerHTML = "<button class='delete' onclick=RemoveSpecificObj('"+ obj.id + "')>Delete</button>"
+    // document.getElementById(obj.id).appendChild(span)
 
   }
 
@@ -74,6 +82,12 @@ function RemoveSpecificObj(param_id) {
 
 
 //Dragable Items Function
+function yes_form() {
+    var div = document.createElement('div');
+    div.innerHTML = document.getElementById('yes_form_temp').innerHTML;
+
+    return div;
+}
 function DragRow(){
 //Backup
     // var span = document.createElement('span');
@@ -125,6 +139,62 @@ function DragH1(){
 function DragBtn(){
     var div = document.createElement('Button');
     div.innerHTML = 'Button';
+
+    return div;
+}
+
+function Dragparagraph(){
+    var div = document.createElement('p');
+    div.innerHTML = 'Text';
+    div.contentEditable = 'True';
+
+    return div;
+}
+
+function DragH2(){
+    var div = document.createElement('h2');
+    div.innerHTML = 'Heading';
+    div.contentEditable = 'True';
+
+    return div;
+}
+
+function DragH3(){
+    var div = document.createElement('h3');
+    div.innerHTML = 'Heading';
+    div.contentEditable = 'True';
+
+    return div;
+}
+
+function DragH4(){
+    var div = document.createElement('h4');
+    div.innerHTML = 'Heading';
+    div.contentEditable = 'True';
+
+    return div;
+}
+
+function DragH4(){
+    var div = document.createElement('h4');
+    div.innerHTML = 'Heading';
+    div.contentEditable = 'True';
+
+    return div;
+}
+
+function DragH5(){
+    var div = document.createElement('h5');
+    div.innerHTML = 'Heading';
+    div.contentEditable = 'True';
+
+    return div;
+}
+
+function DragH6(){
+    var div = document.createElement('h6');
+    div.innerHTML = 'Heading';
+    div.contentEditable = 'True';
 
     return div;
 }

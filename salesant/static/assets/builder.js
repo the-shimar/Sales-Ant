@@ -16,7 +16,17 @@ function ElementSelected(objid, id) {
     var x = document.getElementById('NormalProperties');
     MFrameProperties.id = objid;
     console.log('Clicked'+MFrameProperties.id);
+
+    //NormalProperties Image InputBox
+    if (id == 'NBIMAGE_Row') {
+        document.getElementById('NBIMAGE_Row').style.display = 'inherit';
+    }
+    else {
+        document.getElementById('NBIMAGE_Row').style.display = 'none';
+    }
+
 } 
+
 
 function IBFocusoutImg(id) {
     var x = document.getElementById(id).value;
@@ -31,6 +41,27 @@ function IBFocusoutColor(id) {
 }
 
 // Normal Box Properties
+function NBImageChangeURL(currentInput) {
+    obj = document.getElementById(MFrameProperties.id);
+    obj.src  =  document.getElementById(currentInput).value;
+}
+
+function NormalBoxFontSize(currentInput) {
+    obj = document.getElementById(MFrameProperties.id);
+    obj.style.fontSize  =  document.getElementById(currentInput).value;
+}
+
+function NormalBoxFontColor(currentInput) {
+    obj = document.getElementById(MFrameProperties.id);
+    obj.style.color =  document.getElementById(currentInput).value;
+}
+
+function NormalBoxBGColor(currentInput) {
+    console.log("BG Color: "+currentInput);
+    obj = document.getElementById(MFrameProperties.id);
+    obj.style.backgroundColor =  document.getElementById(currentInput).value;
+}
+
 function NormalBoxHeight(propertyName, currentInput) {
     obj = document.getElementById(MFrameProperties.id);
     // obj.style.window[propertyName] = document.getElementById(currentInput).value;
@@ -52,6 +83,13 @@ function pWidth(objectId, InputBoxID) { //objectId = Object in MainFrame. InputB
     obj = document.getElementById(objectId.id);
     obj.style.width =  document.getElementById(InputBoxID).value;
 }
+
+function pDelete(){
+    obj = document.getElementById(MFrameProperties.id); //MFrameProperties.id is automatically changes, when obj selected in the mainFrame
+    document.getElementById(obj.id).remove();
+}
+
+
 //Align Properties
 function pTAlign(align) { //objectId = Object in MainFrame. align = "left|right|center|justify|initial|inherit"
     obj = document.getElementById(MFrameProperties.id); //MFrameProperties.id is automatically changes, when obj selected in the mainFrame

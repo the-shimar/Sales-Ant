@@ -24,4 +24,5 @@ urlpatterns = [
     path('triggers/', include('triggers.urls')),
     path('apikey/', include('apikey.urls')),
     path('tags/', include('tags.urls')),
+    path('dc/', include('data_collected.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

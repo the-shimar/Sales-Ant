@@ -9,4 +9,5 @@ urlpatterns = [
     path('savebuild', views.saveBuildJS, name='savebuild'),
     path('builds', views.allBuilds, name='builds'),
     path('builddelete', views.buildDelete, name='builddelete'),
+    path('templates_made', views.templates_made, name='templates_made'),
 ]

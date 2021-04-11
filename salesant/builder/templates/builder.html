@@ -26,6 +26,7 @@
 
     <link rel="stylesheet" href="{% static 'assets/Drag.css' %}">
     <link rel="stylesheet" href="{% static 'assets/builder.css' %}">
+    <link rel="stylesheet" href="{% static 'custom_templates/ynf.css' %}">
 </head>
 
 <body id="page-top" style="background-color: #363538;color: #000000;">
@@ -124,6 +125,19 @@
                 <div style="padding-right: 0px;padding-left: 0px;background-color: transparent;margin-top: -15px;min-height: 80%;max-height: 80%;height: 600px;">
                     <div class="row no-gutters" style="min-height: 100%;background-color: transparent;height: 600px;">
                         <div class="col" style="background-color: transparent;min-height: 100%;height: 550px;">
+                            <div class="border rounded-0 border-dark shadow card" data-aos="fade-left" style="background-color: #1a2126;"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="background-color: #000000;color: #ff4f00;font-size: 13px;filter: brightness(100%);">Templates</a>
+                                <div class="collapse border rounded-0 border-dark" id="collapse-8" style="background-color: #191919;height: 157px;">
+                                    <div class="card-body" style="padding: 0px;margin: 0px;height: 100%;">
+                                        <div id="yes_form" draggable="true" ondragstart="onDragStart(event);" class="col-12 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-wpforms" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Yes/No Form</label></div>
+                                        </div>
+                                        <div id="yes_form" draggable="true" ondragstart="onDragStart(event);" class="col-12 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-newspaper-o" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">News Letter</label></div>
+                                        </div>
+                                        <textarea style="background-color: transparent;width: 100%;height: 100%;padding: 6px;" placeholder=":~"></textarea>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card border-dark border rounded-0 mb-4" style="margin: 0px;margin-bottom: 0px;min-height: 100%;">
                                 <div class="card-header border rounded-0 border-dark py-3" style="background-color: rgb(14,19,23);">
                                     <h6 class="m-0" style="color: rgb(214,213,213);filter: brightness(200%);">Elements</h6>
@@ -144,6 +158,24 @@
                                         </div>
                                         <div id="DragBtn" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
                                             <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Button</label></div>
+                                        </div>
+                                        <div id="Dragparagraph" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Text</label></div>
+                                        </div>
+                                        <div id="DragH2" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H2</label></div>
+                                        </div>
+                                        <div id="DragH3" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H3</label></div>
+                                        </div>
+                                        <div id="DragH4" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H4</label></div>
+                                        </div>
+                                        <div id="DragH5" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H5</label></div>
+                                        </div>
+                                        <div id="DragH6" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H6</label></div>
                                         </div>
                                         <div class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
                                             <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Image</label></div>
@@ -172,7 +204,8 @@
                                 <div class="card-body d-lg-flex justify-content-lg-center align-items-lg-center" style="background-color: rgb(230,230,247); max-height: 550px;">
                                     {% if is_post %}  {{ build.build | safe}} 
                                     {% else %}
-                                    <div id='BuildFrame' onclick="BuildFrameSelected('BuildFrame')" ondragover="onDragOver(event);" ondrop="onDrop(event);" style="width: 500px;height: 500px;background-color: #ffffff;"></div>
+                                    <!-- <div id='BuildFrame' class="d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" onclick="BuildFrameSelected('BuildFrame')" ondragover="onDragOver(event);" ondrop="onDrop(event);" style="width: 500px;height: 500px;background-color: #ffffff;"></div> -->
+                                    <div id='BuildFrame' class="d-lg-flex d-xl-flex flex-column justify-content-lg-center justify-content-xl-center " onclick="BuildFrameSelected('BuildFrame')" ondragover="onDragOver(event);" ondrop="onDrop(event);" style="width: 500px;height: 500px;background-color: #ffffff;"></div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -236,9 +269,75 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="border rounded-0 border-dark shadow card" data-aos="fade-left" style="background-color: #1a2126;"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="background-color: #0e1317;color: #fcfafa;font-size: 13px;">Code</a>
+                            <div id="FrameProperties" class="border rounded-0 border-dark shadow card" data-aos="fade-left" style="background-color: #1a2126;"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-tp" href="#collapse-tp" role="button" style="background-color: #0e1317;color: #fcfafa;font-size: 13px;">Template Properties</a>
+                                <div class="collapse border rounded-0 border-dark" id="collapse-tp" style="background-color: #191919;">
+                                    <div class="card-body">
+                                        <!--Template-->
+                                        <div id="TemplateProperties">
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa;">height</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="TNBHeight" onfocusout='TemplateBoxHeight("height", "TNBHeight")' type="text" placeholder="height..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa;">width</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="TNBWidth" onfocusout='TemplateBoxWidth("width", "TNBWidth")' type="text" placeholder="width..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>
+                                            <div class="row" style="margin-top: 3px;margin-bottom: 3px;">
+                                                <div onclick="tpTAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-x-square-fill" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="None">
+                                                        <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
+                                                    </svg></div>
+                                                <div onclick="tpTAlign('left')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-start" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Left">
+                                                        <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"></path>
+                                                        <path d="M3 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7z"></path>
+                                                    </svg></div>
+                                                <div onclick="tpTAlign('center')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-middle" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Center">
+                                                        <path d="M6 13a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v10zM1 8a.5.5 0 0 0 .5.5H6v-1H1.5A.5.5 0 0 0 1 8zm14 0a.5.5 0 0 1-.5.5H10v-1h4.5a.5.5 0 0 1 .5.5z"></path>
+                                                    </svg></div>
+                                                <div onclick="tpTAlign('right')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-end" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Right">
+                                                        <path fill-rule="evenodd" d="M14.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"></path>
+                                                        <path d="M13 7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"></path>
+                                                    </svg></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Font Size</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="TNBFontSize" onfocusout='TemplateBoxFontSize("TNBFontSize")' type="text" placeholder="Size..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>                                               
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Font color</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="TNBFontColor" onfocusout='TemplateBoxFontColor("TNBFontColor")' type="color" style="width: 70px;"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Bg color</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="TNB_BG_Color" onfocusout='TemplateBoxBGColor("TNB_BG_Color")' type="color" style="width: 70px;"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Delete</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><Button onclick="TemplatespDelete()">Remove</Button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border rounded-0 border-dark shadow card" data-aos="fade-left" style="background-color: #1a2126;"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="background-color: #0e1317;color: #fcfafa;font-size: 13px;">Template Pages</a>
                                 <div class="collapse border rounded-0 border-dark" id="collapse-8" style="background-color: #191919;height: 157px;">
-                                    <div class="card-body" style="padding: 0px;margin: 0px;height: 100%;"><textarea style="background-color: transparent;width: 100%;height: 100%;padding: 6px;" placeholder=":~"></textarea></div>
+                                    <div class="card-body" style="height: 100%;">
+                                        <p style="color: #ff4f00;">Yes/No Form</p>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Decision Page</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><button onclick="ynf_build('YNFT_first')" style="width: 70px;">Show</button></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Email Page</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><button onclick="ynf_build('YNFT_second')" style="width: 70px;">Show</button></div>
+                                            </div><div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Thankyou Page</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><button onclick="ynf_build('YNFT_third')" style="width: 70px;">Show</button></div>
+                                            </div><div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">nothanks Page</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><button onclick="ynf_build('YNFT_fourth')" style="width: 70px;">Show</button></div>
+                                            </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="shadow card" data-aos="fade-left"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-4" href="#collapse-4" role="button" style="background-color: #0e1317;color: #fcfafa;font-size: 13px;">Properties</a>
@@ -252,8 +351,12 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa;">width</label></div>
-                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="NBWidth" onfocusout='NormalBoxWidth("width", "NBWidth")' type="text" placeholder="height..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="NBWidth" onfocusout='NormalBoxWidth("width", "NBWidth")' type="text" placeholder="width..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
                                             </div>
+                                            <div class="row" id="NBIMAGE_Row" style="display: none;">
+                                                <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa; font-size: small;">Image URL</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="NBfImg" onfocusout='NBImageChangeURL("NBfImg")' class="bg-light border-0 small" type="text" placeholder="None" style="padding: 5px;margin: 3px;width: 100%;" inputmode="numeric"></div>
+                                            </div> 
                                             <div class="row" style="margin-top: 3px;margin-bottom: 3px;">
                                                 <div onclick="pTAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-x-square-fill" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="None">
                                                         <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
@@ -269,14 +372,22 @@
                                                         <path fill-rule="evenodd" d="M14.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"></path>
                                                         <path d="M13 7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"></path>
                                                     </svg></div>
-                                            </div>                                            
+                                            </div>   
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Font Size</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="NBFontSize" onfocusout='NormalBoxFontSize("NBFontSize")' type="text" placeholder="size..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>                                         
                                             <div class="row">
                                                 <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Font color</label></div>
-                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input type="color" style="width: 70px;"></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="NBFontColor" onfocusout='NormalBoxFontColor("NBFontColor")' type="color" style="width: 70px;"></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Bg color</label></div>
-                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input type="color" style="width: 70px;"></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="NB_BG_Color" onfocusout='NormalBoxBGColor("NB_BG_Color")' type="color" style="width: 70px;"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Delete</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><Button onclick="pDelete()">Remove</Button></div>
                                             </div>
                                         </div>
                                     </div>
@@ -287,9 +398,90 @@
                     </div>
                 </div>
             </div>
-            
-        </div>
-    </div>
+
+            <!--Templates-->
+            <!--Yes Form-->
+            <div id="yes_form_temp" style="display: none;">
+                <div id="YNFT_first" class="col" style="margin-top: 2%;margin-bottom: 2%;">
+                    <div id="1st_row_heading" class="row">
+                        <div class="col d-lg-flex justify-content-lg-center">
+                            <h1 id="1st_heading" onclick="TempElementSelected('1st_heading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">More Discounts!</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 3px;">
+                        <div class="col-6 d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <div id="1st_choice_div" onclick="TempElementSelected('1st_choice_div', 'dummy')" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 50%;height: 70%;background: #f57070;">
+                                <p id="1st_choice" onclick="TempElementSelected('1st_choice', 'dummy'); ynf_yes_fnc();" contenteditable="True" style="text-align: center;width: fit-content;margin: 7px;padding: 3px;font-size: auto;">Yes, I need</p>
+                            </div>
+                        </div>
+                        <div class="col-6 d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <div id="2st_choice_div" onclick="TempElementSelected('2st_choice_div', 'dummy')" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 50%;height: 70%;background: #f57070;">
+                                <p id="2st_choice" onclick="TempElementSelected('2st_choice', 'dummy'); ynf_no_fnc();" contenteditable="True" style="text-align: center;width: fit-content;margin: 7px;padding: 3px;font-size: auto;">No thanks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="YNFT_second" class="col" style="margin-top: 2%;margin-bottom: 2%;">
+                    <div class="row">
+                        <div class="col d-lg-flex justify-content-lg-center">
+                            <h1 id="2nd_heading" onclick="TempElementSelected('2nd_heading', 'dummy')" contenteditable="True" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Only one step</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 3px;">
+                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <form action="/google" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 100%;">
+                                <input type="hidden" name="s_v" value="1">
+                                <input type="hidden" name="u_y" value="Shimar">
+                                <input type="hidden" name="ng" value="trigger1">
+                                <input name="c_e" id="2nd_emailinput" onclick="TempElementSelected('2nd_emailinput', 'dummy')" class="form-control" type="email" style="width: 55%;" placeholder="Email">
+                                <button id="2nd_emailbutton" onclick="TempElementSelected('2nd_emailbutton', 'dummy')" contenteditable="True" onclick="ynf_emailsubmit_fnc()" class="btn btn-primary border-white d-lg-flex justify-content-lg-center align-items-lg-center py-0" type="button" style="width: 20%;height: 38px;background: #f57070;"><label style="font-size: 15px;margin: 0px;">Next</label></button></form>
+                        </div>
+                    </div>
+                </div>
+                <div id="YNFT_third" class="col" style="margin-top: 2%;margin-bottom: 2%;">
+                    <div class="row">
+                        <div class="col d-lg-flex justify-content-lg-center">
+                            <h1 id="3rd_heading" onclick="TempElementSelected('3rd_heading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Thank you!</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 3px;">
+                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <h1 id="3rd_subheading" onclick="TempElementSelected('3rd_subheading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(245,112,112);margin: 0px;font-size: 21px;">Check your Email for PROMO Code!</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="YNFT_fourth" class="col" style="margin-top: 2%;margin-bottom: 2%;">
+                    <div class="row">
+                        <div class="col d-lg-flex justify-content-lg-center">
+                            <h1 id="4th_heading" onclick="TempElementSelected('4th_heading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Ok fine!</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 3px;">
+                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <h1 id="4th_subheading" onclick="TempElementSelected('4th_subheading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(245,112,112);margin: 0px;font-size: 21px;">Thank you for your patience</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="yes_form_tempa" style="display: none;">
+                <form id="yn_form_id" style="width: 100%;">
+                    <div>
+                        <div class="form-row">
+                            <div class="col d-lg-flex justify-content-lg-center">
+                                <div class="form-check d-lg-flex" style="text-align: center;width: 10%;font-size: 18px;margin: 5px;margin-left: 5px;"><input class="form-check-input" type="radio" id="yes_radio_ynform" name="radio_ynform" value="Yes" style="text-align: center;"><label class="form-check-label" for="formCheck-1" style="font-size: 18px;text-align: center;">Yes</label></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col d-lg-flex justify-content-lg-center">
+                                <div class="form-check d-lg-flex" style="text-align: center;width: 10%;font-size: 18px;margin: 5px;margin-left: 5px;"><input class="form-check-input" type="radio" iid="no_radio_ynform" name="radio_ynform" value="No"><label class="form-check-label" for="formCheck-1">No</label></div>
+                            </div>
+                        </div><button class="btn btn-primary text-center d-lg-flex justify-content-lg-center jello animated" type="button" style="margin: 4px;width: 80%;margin-right: 10%;margin-left: 10%;">Submit</button>
+                        </div>
+                    </form>
+                    
+                </div>
+                    </div>
+                </div>
 
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
@@ -304,6 +496,9 @@
     <script src="{% static 'assets/AfterDrag.js' %}"></script>
     <script src="{% static 'assets/builder.js' %}"></script>
     <script src="{% static 'buildersetting.js' %}"></script>
+    <script src="{% static 'templates.js' %}"></script>
+    <script src="{% static 'custom_templates/ynf.js' %}"></script>
+    <script src="{% static 'custom_templates/template_properties.js' %}"></script>
 </body>
 
 </html>
