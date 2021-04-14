@@ -1,6 +1,6 @@
 function BuildDelete(buildName) {
-    document.getElementById('BuildName').value = buildName;
-    console.log('buildname: '+document.getElementById("BuildName").value )
+    document.getElementById('BuildName_del').value = buildName;
+    console.log('buildname: '+document.getElementById("BuildName_del").value )
     document.getElementById('BuildDelete').submit();
 }
 

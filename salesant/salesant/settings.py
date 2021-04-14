@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'user.apps.UserConfig',
     'data_collected.apps.DataCollectedConfig',
     'apikey.apps.ApikeyConfig',
     'tags.apps.TagsConfig',

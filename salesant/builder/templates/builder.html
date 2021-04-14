@@ -36,16 +36,16 @@
         <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#menu"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"><i class="la la-navicon"></i></span></button>
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav flex-grow-1 justify-content-between">
-                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="index.html"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="builder.html">Builder</a></li>
-                    <li class="nav-item"><a class="nav-link" href="triggers.html">Triggers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="apiservice.html">API Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="taggenerator.html">Tag Generator</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#buyport">Buy</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="login.html" style="color: #ff4f00;">&nbsp;Logout</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, User</a></li>
+                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="/"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'build' %}">Builder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'newTrigger' %}">Triggers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'apigenerate' %}">API Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'tags' %}">Tag Generator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#buyport">Buy</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="{% url 'logout' %}" style="color: #ff4f00;">&nbsp;Logout</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;" target="_blank"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, {{ user.get_username }}</a></li>
                 </ul>
             </div>
         </div>
@@ -405,17 +405,17 @@
                 <div id="YNFT_first" class="col" style="margin-top: 2%;margin-bottom: 2%;">
                     <div id="1st_row_heading" class="row">
                         <div class="col d-lg-flex justify-content-lg-center">
-                            <h1 id="1st_heading" onclick="TempElementSelected('1st_heading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">More Discounts!</h1>
+                            <h1 id="1st_heading" onclick="TempElementSelected('1st_heading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">More Discounts!</h1>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 3px;">
                         <div class="col-6 d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
-                            <div id="1st_choice_div" onclick="TempElementSelected('1st_choice_div', 'dummy')" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 50%;height: 70%;background: #f57070;">
+                            <div id="1st_choice_div" onclick="TempElementSelected('1st_choice_div', 'dummy');" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 50%;height: 70%;background: #f57070;">
                                 <p id="1st_choice" onclick="TempElementSelected('1st_choice', 'dummy'); ynf_yes_fnc();" contenteditable="True" style="text-align: center;width: fit-content;margin: 7px;padding: 3px;font-size: auto;">Yes, I need</p>
                             </div>
                         </div>
                         <div class="col-6 d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
-                            <div id="2st_choice_div" onclick="TempElementSelected('2st_choice_div', 'dummy')" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 50%;height: 70%;background: #f57070;">
+                            <div id="2st_choice_div" onclick="TempElementSelected('2st_choice_div', 'dummy');" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 50%;height: 70%;background: #f57070;">
                                 <p id="2st_choice" onclick="TempElementSelected('2st_choice', 'dummy'); ynf_no_fnc();" contenteditable="True" style="text-align: center;width: fit-content;margin: 7px;padding: 3px;font-size: auto;">No thanks</p>
                             </div>
                         </div>
@@ -424,41 +424,41 @@
                 <div id="YNFT_second" class="col" style="margin-top: 2%;margin-bottom: 2%;">
                     <div class="row">
                         <div class="col d-lg-flex justify-content-lg-center">
-                            <h1 id="2nd_heading" onclick="TempElementSelected('2nd_heading', 'dummy')" contenteditable="True" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Only one step</h1>
+                            <h1 id="2nd_heading" onclick="TempElementSelected('2nd_heading', 'dummy');" contenteditable="True" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Only one step</h1>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 3px;">
                         <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
-                            <form action="/google" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 100%;">
-                                <input type="hidden" name="s_v" value="1">
-                                <input type="hidden" name="u_y" value="Shimar">
-                                <input type="hidden" name="ng" value="trigger1">
-                                <input name="c_e" id="2nd_emailinput" onclick="TempElementSelected('2nd_emailinput', 'dummy')" class="form-control" type="email" style="width: 55%;" placeholder="Email">
-                                <button id="2nd_emailbutton" onclick="TempElementSelected('2nd_emailbutton', 'dummy')" contenteditable="True" onclick="ynf_emailsubmit_fnc()" class="btn btn-primary border-white d-lg-flex justify-content-lg-center align-items-lg-center py-0" type="button" style="width: 20%;height: 38px;background: #f57070;"><label style="font-size: 15px;margin: 0px;">Next</label></button></form>
+                            <form method="POST" id="YNF_Form_SalesAnt" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 100%;">
+                                <input type="hidden" name="s_v" id="s_v" value="1">
+                                <input type="hidden" name="u_y" id="u_y" value="Shimar">
+                                <input type="hidden" name="ng" id="ng" value="trigger1">
+                                <input name="c_e" id="2nd_emailinput" onclick="TempElementSelected('2nd_emailinput', 'dummy');" class="form-control" type="email" style="width: 55%;" placeholder="Email">
+                                <button id="2nd_emailbutton" onclick="TempElementSelected('2nd_emailbutton', 'dummy'); ynf_emailsubmit_fnc();" contenteditable="True" class="btn btn-primary border-white d-lg-flex justify-content-lg-center align-items-lg-center py-0" type="button" style="width: 20%;height: 38px;background: #f57070;"><label style="font-size: 15px;margin: 0px;">Next</label></button></form>
                         </div>
                     </div>
                 </div>
                 <div id="YNFT_third" class="col" style="margin-top: 2%;margin-bottom: 2%;">
                     <div class="row">
                         <div class="col d-lg-flex justify-content-lg-center">
-                            <h1 id="3rd_heading" onclick="TempElementSelected('3rd_heading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Thank you!</h1>
+                            <h1 id="3rd_heading" onclick="TempElementSelected('3rd_heading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Thank you!</h1>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 3px;">
                         <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
-                            <h1 id="3rd_subheading" onclick="TempElementSelected('3rd_subheading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(245,112,112);margin: 0px;font-size: 21px;">Check your Email for PROMO Code!</h1>
+                            <h1 id="3rd_subheading" onclick="TempElementSelected('3rd_subheading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(245,112,112);margin: 0px;font-size: 21px;">Check your Email for PROMO Code!</h1>
                         </div>
                     </div>
                 </div>
                 <div id="YNFT_fourth" class="col" style="margin-top: 2%;margin-bottom: 2%;">
                     <div class="row">
                         <div class="col d-lg-flex justify-content-lg-center">
-                            <h1 id="4th_heading" onclick="TempElementSelected('4th_heading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Ok fine!</h1>
+                            <h1 id="4th_heading" onclick="TempElementSelected('4th_heading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Ok fine!</h1>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 3px;">
                         <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
-                            <h1 id="4th_subheading" onclick="TempElementSelected('4th_subheading', 'dummy')" contenteditable="True" style="width: 100%;color: rgb(245,112,112);margin: 0px;font-size: 21px;">Thank you for your patience</h1>
+                            <h1 id="4th_subheading" onclick="TempElementSelected('4th_subheading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(245,112,112);margin: 0px;font-size: 21px;">Thank you for your patience</h1>
                         </div>
                     </div>
                 </div>

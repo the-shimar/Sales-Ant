@@ -30,16 +30,16 @@
         <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#menu"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"><i class="la la-navicon"></i></span></button>
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav flex-grow-1 justify-content-between">
-                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="index.html"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="builder.html">Builder</a></li>
-                    <li class="nav-item"><a class="nav-link" href="triggers.html">Triggers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="apiservice.html">API Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="taggenerator.html">Tag Generator</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#buyport">Buy</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="login.html" style="color: #ff4f00;">&nbsp;Logout</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, User</a></li>
+                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="/"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'build' %}">Builder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'newTrigger' %}">Triggers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'apigenerate' %}">API Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'tags' %}">Tag Generator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#buyport">Buy</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="{% url 'logout' %}" style="color: #ff4f00;">&nbsp;Logout</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;" target="_blank"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, {{ user.get_username }}</a></li>
                 </ul>
             </div>
         </div>
@@ -48,17 +48,13 @@
         <div class="row" style="width: 100%;margin: 0px;">
             <div class="col-auto" style="width: 12%;padding: 0px;background-color: #191919;">
                 <div style="width: 100%;background-color: #191919;">
+                    
                     <div class="row" id="trigger_sideitems" style="width: 100%;margin: 0px;">
-                        <div class="col" style="padding: 0px;"><a class="d-lg-flex align-items-lg-center" id="a_alter" href="#" style="color: #fcfafa;width: 100%;"><label class="d-lg-flex align-items-lg-center" style="margin: 12px;font-size: 15px;color: rgb(195,191,191);"><i class="fas fa-street-view" style="padding: 7px;font-size: 19px;color: rgb(255,255,255);"></i>All triggers</label></a></div>
+                        <div class="col" style="padding: 0px;"><a id="a_alter" href="{% url 'newTrigger' %}" style="color: #fcfafa;width: 100%;"><label class="d-lg-flex align-items-lg-center" style="margin: 12px;font-size: 15px;color: rgb(195,191,191);"><i class="fas fa-ruler-combined" style="padding: 7px;font-size: 19px;color: rgb(255,255,255);"></i>New triggers</label></a></div>
                     </div>
+                   
                     <div class="row" id="trigger_sideitems" style="width: 100%;margin: 0px;">
-                        <div class="col" style="padding: 0px;"><a id="a_alter" href="#" style="color: #fcfafa;width: 100%;"><label class="d-lg-flex align-items-lg-center" style="margin: 12px;font-size: 15px;color: rgb(195,191,191);"><i class="fas fa-ruler-combined" style="padding: 7px;font-size: 19px;color: rgb(255,255,255);"></i>New triggers</label></a></div>
-                    </div>
-                    <div class="row" id="trigger_sideitems" style="width: 100%;margin: 0px;">
-                        <div class="col" style="padding: 0px;"><a id="a_alter" href="#" style="color: #fcfafa;width: 100%;"><label class="d-lg-flex align-items-lg-center" style="margin: 12px;font-size: 15px;color: rgb(195,191,191);"><i class="fas fa-file-medical-alt" style="padding: 7px;font-size: 19px;color: rgb(255,255,255);"></i>Active triggers</label></a></div>
-                    </div>
-                    <div class="row" id="trigger_sideitems" style="width: 100%;margin: 0px;">
-                        <div class="col" style="padding: 0px;"><a id="a_alter" href="triggermanage.html" style="color: #fcfafa;width: 100%;"><label class="d-lg-flex align-items-lg-center" style="margin: 12px;font-size: 15px;color: rgb(195,191,191);"><i class="fas fa-truck-monster" style="padding: 7px;font-size: 19px;color: rgb(255,255,255);"></i>Manage triggers</label></a></div>
+                        <div class="col" style="padding: 0px;"><a id="a_alter" href="{% url 'manageTriggers' %}" style="color: #fcfafa;width: 100%;"><label class="d-lg-flex align-items-lg-center" style="margin: 12px;font-size: 15px;color: rgb(195,191,191);"><i class="fas fa-truck-monster" style="padding: 7px;font-size: 19px;color: rgb(255,255,255);"></i>Manage triggers</label></a></div>
                     </div>
                 </div>
             </div>

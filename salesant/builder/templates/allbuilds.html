@@ -35,16 +35,16 @@
         <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#menu"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"><i class="la la-navicon"></i></span></button>
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav flex-grow-1 justify-content-between">
-                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="index.html"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="builder.html">Builder</a></li>
-                    <li class="nav-item"><a class="nav-link" href="triggers.html">Triggers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="apiservice.html">API Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="taggenerator.html">Tag Generator</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#buyport">Buy</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="login.html" style="color: #ff4f00;">&nbsp;Logout</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, User</a></li>
+                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="/"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'build' %}">Builder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'newTrigger' %}">Triggers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'apigenerate' %}">API Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'tags' %}">Tag Generator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#buyport">Buy</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="{% url 'logout' %}" style="color: #ff4f00;">&nbsp;Logout</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;" target="_blank"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, {{ user.get_username }}</a></li>
                 </ul>
             </div>
         </div>
@@ -82,14 +82,14 @@
                                         </svg></a>Builds</h6>
                             </div>
                             <div class="card-body">
-                                <!--Build Delete Form--><form id="BuildDelete" method="POST" action="builddelete">{% csrf_token %} <input type="hidden" value="" name="BuildName"><input type="hidden" name="BuildId" value=""></form>
+                                <!--Build Delete Form--><form id="BuildDelete" method="POST" action="{% url 'builddelete' %}">{% csrf_token %} <input type="hidden" value="{{ b.build_name }}" id="BuildName_del" name="BuildName_del"><input type="hidden" name="BuildId" value="{{ b.id }}"></form>
                                 <!--Build Build Frame Edit Form--><form id="BuildFrameEdit" method="POST" action="/builder/">{% csrf_token %} <input id="form_buildName_navigator" type="hidden" value="{{ b.build_name }}" name="BuildName"><input  type="hidden" name="BuildId" value="{{ b.id }}"></form>
                                 
                                 {% for b in build %}
                                 <div class="row">
                                     <div class="col d-md-flex justify-content-md-start align-items-md-center"><label class="col-form-label">{{ b.build_name}}</label></div>
                                     <div class="col d-md-flex justify-content-md-end align-items-md-center">
-                                        <div class="d-md-flex justify-content-md-center mail-custom-btn"><a onclick="BuildFrameEdit('{{ b.build_name }}')" data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn" href="#" role="button" title="Edit"><i class="fa fa-edit"></i></a><a href="/triggers/create" data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn" href="#" role="button" title="Action"><i class="fa fa-send"></i></a><a onclick="BuildDelete('{{ b.build_name}}')" data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn" href="#" role="button" title="Delete"><i class="fa fa-trash"></i></a><a onclick="BuildFrameEdit('{{ b.build_name }}')" data-toggle="tooltip" data-bss-tooltip="" data-aos="flip-up" class="custom-btn light-btn" href="#content" role="button" title="Builder" style="background: #000000;"><i class="fa fa-hand-grab-o" style="color: rgb(255,255,255);"></i></a></div>
+                                        <div class="d-md-flex justify-content-md-center mail-custom-btn"><a onclick="BuildFrameEdit('{{ b.build_name }}')" data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn"  role="button" title="Edit"><i class="fa fa-edit"></i></a><a href="/triggers/create" data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn" role="button" title="Action"><i class="fa fa-send"></i></a><a onclick="BuildDelete('{{ b.build_name }}')" data-toggle="tooltip" data-bss-tooltip="" class="custom-btn light-btn"  role="button" title="Delete"><i class="fa fa-trash"></i></a><a onclick="BuildFrameEdit('{{ b.build_name }}')" data-toggle="tooltip" data-bss-tooltip="" data-aos="flip-up" class="custom-btn light-btn" href="#content" role="button" title="Builder" style="background: #000000;"><i class="fa fa-hand-grab-o" style="color: rgb(255,255,255);"></i></a></div>
                                     </div>
                                 </div>
                                 {% endfor %}

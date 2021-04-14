@@ -1,10 +1,15 @@
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from .models import YNF_Form_List
+from django.contrib.auth import authenticate
+
 
 # Create your views here.
 def dc(request):
-    return redirect('/tags')
+    if request.user.is_authenticated:
+        return redirect('/tags')
+    else:
+        return redirect('/login')
 
 @csrf_exempt
 def dc_ynf(request):
@@ -23,4 +28,4 @@ def dc_ynf(request):
         
         obj = YNF_Form_List.objects.all()
         print(f'Obj: {obj}')
-        return redirect('/tags')
+        return redirect('/')

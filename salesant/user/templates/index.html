@@ -1,0 +1,228 @@
+{% load static %}<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - SalesAnt</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome5-overrides.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom-buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/dropdown-search-bs4.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Google-Style-Text-Input.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Modal-commerce-popup-button-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Modal-commerce-popup-button.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navbar---Apple-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navbar---Apple.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Toggle-Switch-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Toggle-Switch.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/x-dropdown.css' %}">
+</head>
+
+<body id="page-top" style="background: #f8f9fc;">
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark navbar--apple" style="filter: blur(0px);">
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#menu"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"><i class="la la-navicon"></i></span></button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="/"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'build' %}">Builder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'newTrigger' %}">Triggers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'apigenerate' %}">API Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'tags' %}">Tag Generator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#buyport">Buy</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="{% url 'logout' %}" style="color: #ff4f00;">&nbsp;Logout</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;" target="_blank"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, {{ user.get_username }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper" style="margin-top: 11px;">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard - Website.com</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" data-aos="fade-right" data-aos-duration="700" data-aos-delay="700" href="#buyport" style="background: #c3470f;border-color: #4e750a;"><i class="fas fa-shopping-cart fa-sm text-white-50" style="font-size: 15.25px;margin-right: 5px;border-color: rgb(57,135,57);"></i>Buy for another Website</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-primary py-2">
+                                <div class="card-body" style="background-color: transparent;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Builds</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>$40,000</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-database fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Triggers</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>$215,000</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-space-shuttle fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-info py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>Api keys</span></div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span>50%</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-key fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-warning py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Tags</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>18</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-tags fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">Tags Triggered</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Revenue&quot;,&quot;backgroundColor&quot;:&quot;#4e73df&quot;,&quot;borderColor&quot;:&quot;#4e73df&quot;,&quot;data&quot;:[&quot;4512&quot;,&quot;5312&quot;,&quot;6251&quot;,&quot;7841&quot;,&quot;9821&quot;,&quot;14984&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-xl-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">Websites</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Direct&quot;,&quot;Social&quot;,&quot;Referral&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;50&quot;,&quot;30&quot;,&quot;15&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                                    <div class="text-center small mt-4"><span class="mr-2"><i class="fas fa-circle text-primary"></i>&nbsp;Direct</span><span class="mr-2"><i class="fas fa-circle text-success"></i>&nbsp;Social</span><span class="mr-2"><i class="fas fa-circle text-info"></i>&nbsp;Refferal</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="buyport">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="text-primary font-weight-bold m-0">Subscribed Domains</h6>
+                                </div>
+                                <div class="card-body" style="height: 257px;max-height: 100%;">
+                                    {% for domain in Domains %}
+                                    <div class="row align-items-center no-gutters" style="margin-bottom: 8px;background: #f9f8f8;border-radius: 8px;margin-top: 3px;padding: 5px;padding-bottom: 5px;">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-primary d-lg-flex align-items-lg-center font-weight-bold text-xs mb-1"><span>{{ domain.plan }}</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span style="font-weight: normal;">{{ domain.website }}</span></div>
+                                        </div>
+                                        <div class="col d-lg-flex justify-content-lg-end align-items-lg-center"><a class="btn btn-success btn-circle ml-1" role="button" data-toggle="tooltip" data-bss-tooltip="" title="Subscription Purchased"><i class="fas fa-check text-white"></i></a></div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="text-primary font-weight-bold m-0">Buy Subscription for New Website&nbsp;<br></h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="/purchase_domain" method="POST"> {% csrf_token %} 
+                                                <div class="form-row" style="margin-bottom: 15px;">
+                                                    <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center" style="text-align: right;"><label class="col-form-label">Website URL</label></div>
+                                                    <div class="col d-lg-flex justify-content-lg-center align-items-lg-center"><input class="form-control" type="url" name="website" style="background: rgb(249,248,248);"><a class="bs4_modal_trigger" href="#" data-modal-id="bs4_sngl_cmrce" data-toggle="modal" target="_blank">Visit</a></div>
+                                                </div>
+                                                <div class="form-row" style="margin-bottom: 15px;">
+                                                    <div class="col-2 d-md-flex d-lg-flex align-items-md-center justify-content-lg-end align-items-lg-center"><label class="col-form-label">Plan</label></div>
+                                                    <div class="col d-lg-flex justify-content-lg-center align-items-lg-center">
+                                                        <input type="hidden" id="Plan_button" name="plan_input" value="">
+                                                        <div class="dropdown" style="width: 100%;"><button id="Plan_button_display" class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button" style="width: 100%;color: rgb(0,0,0);background: rgb(255,255,255);border-color: rgb(0,0,0);">Choose</button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" onclick="plan_button_clicked('Free')">Free</a>
+                                                                <a class="dropdown-item" onclick="plan_button_clicked('1')">1 Year</a>
+                                                                <a class="dropdown-item" onclick="plan_button_clicked('2')">2 Years</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-row" style="margin-bottom: 15px;">
+                                                    <div class="col d-lg-flex justify-content-lg-end">
+                                                        <p class="d-lg-flex justify-content-lg-end align-items-lg-center" style="margin-bottom: 0px;text-align: right;margin-right: 8px;font-size: 13px;color: var(--red);">*Please Check and confirm your website Url before Proceeding</p><button class="btn btn-primary d-lg-flex" type="submit" style="margin-right: 8px;background: #14a973;filter: brightness(103%);border-color: #4e750a;"><i class="fas fa-shopping-cart" style="padding: 4px;"></i>Buy</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2019</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/chart.min.js' %}"></script>
+    <script src="{% static 'assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="{% static 'assets/js/dropdown-search-bs4.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{% static 'assets/js/Modal-commerce-popup-button.js' %}"></script>
+    <script src="{% static 'assets/js/Navbar---Apple.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'plan_btn.js' %}"></script>
+</body>
+
+</html>

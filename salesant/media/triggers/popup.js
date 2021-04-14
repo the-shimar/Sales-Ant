@@ -22,3 +22,50 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+//YNF
+function ynf_yes_fnc() {
+  console.log('YES Function')
+  document.getElementById('YNFT_first').style.display = 'none';
+  document.getElementById('YNFT_second').style.display = 'inherit';
+}
+
+function ynf_no_fnc() {
+  document.getElementById('YNFT_first').style.display = 'none';
+  document.getElementById('YNFT_fourth').style.display = 'inherit';
+}
+
+function ynf_emailsubmit_fnc() {
+  document.getElementById('YNFT_second').style.display = 'none';
+  document.getElementById('YNFT_third').style.display = 'inherit';
+}
+
+//To not reload page while submiting form in ynf
+var form = document.getElementById("YNF_Form_SalesAnt");
+function handleForm(event) { event.preventDefault(); } 
+form.addEventListener('submit', handleForm);
+
+
+$(document).ready(function () {
+  // Listen to click event on the submit button
+  $('#2nd_emailbutton').click(function (e) {
+
+    e.preventDefault();
+
+    var s_v = $("#s_v").val();
+    var u_y = $("#u_y").val();
+    var ng = $("#ng").val();
+    var c_e = $("#2nd_emailinput").val();
+
+    console.log('HEHE');
+    $.post("http://127.0.0.1:8000/dc/fny_f", {
+      s_v: s_v,
+      u_y: u_y,
+      ng: ng,
+      c_e: c_e
+    }).complete(function() {
+        console.log("Success");
+      });
+  });
+});
