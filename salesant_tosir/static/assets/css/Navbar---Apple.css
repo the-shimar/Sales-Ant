@@ -1,0 +1,83 @@
+.navbar--apple .nav-link {
+  color: #ffffff !important;
+  font-size: 13px;
+}
+
+.navbar--apple .apple-logo {
+  font-size: 21px;
+  line-height: 0;
+}
+
+.navbar--apple {
+  background-color: initial !important;
+}
+
+.navbar--apple .navbar-toggler {
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+}
+
+.navbar--apple .navbar-toggler-icon {
+  background-image: none;
+  line-height: 2rem;
+}
+
+@media (max-width: 576px) {
+  .navbar--apple #menu {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar--apple #menu li a {
+    font-size: 17px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+}
+
+#cb_link:hover {
+  color: #ff4f00;
+  text-decoration: none;
+}
+
+#cb_div:hover {
+  background-color: rgba(255,79,0,0.52);
+}
+
+.list-group-item.border-dark.hover_orange_div:hover {
+  background-color: #ff4f00;
+}
+
+#hover_orange_div {
+}
+
+#lisgroup_div:hover {
+  background-color: black;
+}
+
+.list-group-item.border-dark.lisgroup_div:hover {
+  background-color: orange;
+}
+
+#trigger_sidemenu:hover {
+  background-color: orange;
+}
+
+#trigger_sideitems:hover {
+  background-color: rgba(255,79,0,0.52);
+  text-decoration: none;
+}
+
+#trigger_limit:hover {
+  color: #6a8a82;
+  text-decoration-line: none;
+}
+
+#a_alter:hover {
+  text-decoration: none;
+}
+

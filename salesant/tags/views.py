@@ -45,6 +45,30 @@ def tagGenerate(request):
                 regex_pattern = r"onclick=\"BuildFrameSelected\('BuildFrame'\)\" ondragover=\"onDragOver\(event\);\" ondrop=\"onDrop\(event\);\""
                 coder = re.sub(regex_pattern, '',coder)
 
+                Api_key, user_key, trigger_name_key = request.POST['ApiKeyField'], request.user, request.POST['TriggerNameField']
+
+                #API_KEY
+                try:
+                    apikey_obj = Apikey.objects.get(key_name=Api_key)
+                    coder = coder.replace('API_KEY', str(apikey_obj.key))
+                except Exception as e:
+                    print(f'ApiKey Error: {e}')
+                    return redirect('/tags') #Program redirect when no key found
+
+                #WSITE_SALESANT
+                try:
+                    website_obj = UserTriggers.objects.get(name=trigger_name_key)
+                    # coder = coder.replace('WSITE_SALESANT', "Shimar_Website")
+                    coder = coder.replace('WSITE_SALESANT', str(website_obj.website))
+                except Exception as e:
+                    print(f'WSITE_SALESANT Error: {e}')
+                    return redirect('/tags') #Program redirect when no website found    
+
+                #USER_KEY
+                coder = coder.replace('USER_KEY', str(user_key))
+                #TRIGGER_KEY
+                coder = coder.replace('TRIGGER_KEY', str(trigger_name_key))
+
                 tag = Tags(
                     user = request.user,
                     trigger_name = request.POST['TriggerNameField'],
@@ -63,12 +87,19 @@ def tagGenerate(request):
 def tagCodeDelete(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            code = get_object_or_404(Tags, trigger_name=request.POST['CodeDeleteValue'])
-            if code.user == request.user:
+            try:
+                code = Tags.objects.get(trigger_name=request.POST['CodeDeleteValue'])
+                print(f'User of Tag: {code.user}={request.user}')
                 code.delete()
                 print(f'Code ok')
-            else:
-                print(f'ErrorCodeDelete')
+                # if code.user == request.user:
+                #     code.delete()
+                #     print(f'Code ok')
+                # else:
+                #     print(f'ErrorCodeDelete')
+            except Exception as e:
+                print(f'ErrorCodeDelete except: {e}')
+
             return redirect('/tags')
     else:
         return redirect('/login')
@@ -90,13 +121,14 @@ def tagsTrigger(request, triggers_selected):
 #Tag Code
 def tagsForTrigger(request, triggers_selected, fortriggers_selected):
     if request.user.is_authenticated:
+        print(f'Details get: {triggers_selected} # {fortriggers_selected}')
         triggers = Triggers.objects.all()
         user_triggers = UserTriggers.objects.filter(user=request.user)
         apikey = Apikey.objects.filter(user=request.user)
 
-        slt_based_trg = UserTriggers.objects.filter(trigger_type=triggers_selected,user=request.user) 
+        slt_based_trg = UserTriggers.objects.filter(trigger_type=str(triggers_selected),user=request.user) 
         try:
-            code = Tags.objects.get(trigger_name=fortriggers_selected, user=request.user)
+            code = Tags.objects.get(trigger_name=str(fortriggers_selected), user=request.user)
         except Exception as e:
             print(f'Error Code: {e}')
             code = {'code': 'Please Generate'}

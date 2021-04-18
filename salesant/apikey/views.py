@@ -14,7 +14,7 @@ def apiGenerate(request):
                 new_key = Apikey(
                     user = request.user,
                     key_name = request.POST['keyname'],
-                    website = Subscription.objects.get(user='shimar'),
+                    website = Domains.objects.get(user=request.user),
                     key = secrets.token_urlsafe(10),
                 )    
                 new_key.save()

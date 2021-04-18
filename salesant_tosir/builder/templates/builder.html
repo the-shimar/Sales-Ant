@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SalesAnt - Builder</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome5-overrides.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom-buttons.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Modal-commerce-popup-button-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Modal-commerce-popup-button.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navbar---Apple-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navbar---Apple.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Toggle-Switch-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Toggle-Switch.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/x-dropdown.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/Drag.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/builder.css' %}">
+    <link rel="stylesheet" href="{% static 'custom_templates/ynf.css' %}">
+</head>
+
+<body id="page-top" style="background-color: #363538;color: #000000;">
+
+
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark navbar--apple" style="filter: blur(0px);">
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#menu"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"><i class="la la-navicon"></i></span></button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="/"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'build' %}">Builder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'newTrigger' %}">Triggers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'apigenerate' %}">API Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'tags' %}">Tag Generator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#buyport">Buy</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="{% url 'logout' %}" style="color: #ff4f00;">&nbsp;Logout</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="https://theshimar.me/" style="color: #ff4f00;" target="_blank"><i class="fa fa-code" style="color: #ff4f00;"></i>&nbsp;Developer</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" style="color: #ff4f00;">Hi, {{ user.get_username }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper" style="background-color: transparent;">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand sticky-top bg-white shadow mb-4 topbar static-top" style="height: 56px;margin-bottom: 0px;padding-left: 4px;margin-top: -8px;padding-top: 10px;">
+                    <div class="container-fluid">
+                        <form id="BSaveForm" method="POST" action="savebuild" class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">{% csrf_token %}
+                            <!--Form To Save in db--> 
+                                <input type='text' id='BuildHtml' name='BuildHtml' style="display: none;" />
+                            <!--Form To Save in db-->
+                            <div class="input-group"><input id="BuildNameField" name="BuildNameField" class="bg-light form-control border-0 small" type="text" placeholder="Build name..." {% if is_post %} value="{{ build.build_name }}" {% endif %}>
+                                <div class="input-group-append"><button onclick="BuildSave('BuildFrame')" class="btn btn-primary border-white py-0" type="button" style="background-color: #6a8a82;"><label style="font-size: 15px;"><i class="fas fa-save d-lg-flex justify-content-lg-center" style="padding-right: 5px;"></i>Save</label></button></div>
+                            </div>
+                        </form>
+                        <div class="text-center">
+                            <div id="bs4_sngl_cmrce" class="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sngl_cmrce" role="dialog" data-modal-backdrop="true" data-show-on="click" data-modal-delay="false" data-modal-duration="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-content"><a class="bs4_btn_x_out_shtr bs4_sngl_cmrce_close" href="#" data-dismiss="modal">close</a>
+                                        <div class="row">
+                                            <div class="col-12 col-md-5">
+                                                <div class="bs4_sngl_cmrce_img"><img src="{% static 'assets/img/bs4_single_commerce_01.png' %}" alt="bs4_single_commerce_01"></div>
+                                            </div>
+                                            <div class="col-12 col-md-7" style="padding-bottom: 30px;">
+                                                <div class="bs4_sngl_cmrce_txt">
+                                                    <h1>name of product, company plus modal number</h1>
+                                                    <ul>
+                                                        <li><i class="fa fa-star rate-star"></i></li>
+                                                        <li><i class="fa fa-star rate-star"></i></li>
+                                                        <li><i class="fa fa-star rate-star"></i></li>
+                                                        <li><i class="fa fa-star rate-star"></i></li>
+                                                        <li><i class="fa fa-star-half-full rate-star"></i></li>
+                                                    </ul>
+                                                    <h2>130.00</h2>
+                                                    <p class="text-left" style="padding-top: 15px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa.</p>
+                                                    <form class="form-inline d-xl-flex" action="#" style="padding-top: 15px;">
+                                                        <div class="bs4_form_num" style="padding-top: 15px;"><label>quantity</label><input class="form-control" type="number" min="1" max="20"></div>
+                                                        <div class="bs4_form_color" style="padding-top: 15px;"><label>colours</label><select class="form-control form-control-sm">
+                                                                <optgroup label="Pick a color">
+                                                                    <option value="12" selected="">red</option>
+                                                                    <option value="13">green</option>
+                                                                    <option value="14">blue</option>
+                                                                </optgroup>
+                                                            </select></div>
+                                                        <div class="bs4_form_size&quot;" style="margin-left: 15px;margin-top: 15px;"><label>Pick your size</label><select class="form-control" name="size" style="max-width: 128px;">
+                                                                <optgroup label="Select size">
+                                                                    <option value="12" selected="">10</option>
+                                                                    <option value="13">12</option>
+                                                                    <option value="14">14</option>
+                                                                </optgroup>
+                                                            </select></div>
+                                                    </form>
+                                                </div>
+                                                <div class="bs4_form_cmrce_btn" style="padding-left: 20px;"><button class="btn btn-primary d-flex justify-content-start bs4_btn_x_out_shtr" type="submit">ADD TO CART</button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item d-lg-flex dropdown no-arrow" style="color: rgb(0,0,0);font-weight: bold;">
+                                <div></div><input id='BuildFrameHeight' class="bg-light border-0 small" type="text" placeholder="height..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric">
+                                <h6 class="d-lg-flex align-items-lg-center" style="padding: 2px;margin: 0px;">x</h6><input id="BuildFrameWidth" class="bg-light border-0 small" type="text" placeholder="width..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"><button onclick="SizeBuildFrame()" class="btn btn-primary border-white py-0" type="button" style="background-color: #000000;margin: 3px;"><label style="font-size: 11px;margin-bottom: 0px;filter: brightness(200%);">OK</label></button>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider">
+                                <div></div>
+                            </div>
+                            <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center dropdown no-arrow" style="color: rgb(0,0,0);font-weight: bold;"><i class="fa fa-hand-rock-o d-lg-flex justify-content-lg-center" data-aos="fade-up" data-aos-delay="100" style="padding: 5px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;font-size: 22px;color: #6a8a82;padding-top: 2px;"></i>
+                                <h5 class="d-lg-flex" data-aos="fade-left" style="font-weight: bold;margin-bottom: 0px;">Drag and Drop Builder</h5>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div style="padding-right: 0px;padding-left: 0px;background-color: transparent;margin-top: -15px;min-height: 80%;max-height: 80%;height: 600px;">
+                    <div class="row no-gutters" style="min-height: 100%;background-color: transparent;height: 600px;">
+                        <div class="col" style="background-color: transparent;min-height: 100%;height: 550px;">
+                            <div class="border rounded-0 border-dark shadow card" data-aos="fade-left" style="background-color: #1a2126;"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="background-color: #000000;color: #ff4f00;font-size: 13px;filter: brightness(100%);">Templates</a>
+                                <div class="collapse border rounded-0 border-dark" id="collapse-8" style="background-color: #191919;height: 157px;">
+                                    <div class="card-body" style="padding: 0px;margin: 0px;height: 100%;">
+                                        <div id="yes_form" draggable="true" ondragstart="onDragStart(event);" class="col-12 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-wpforms" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Yes/No Form</label></div>
+                                        </div>
+                                        <div id="yes_form" draggable="true" ondragstart="onDragStart(event);" class="col-12 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-newspaper-o" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">News Letter</label></div>
+                                        </div>
+                                        <textarea style="background-color: transparent;width: 100%;height: 100%;padding: 6px;" placeholder=":~"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card border-dark border rounded-0 mb-4" style="margin: 0px;margin-bottom: 0px;min-height: 100%;">
+                                <div class="card-header border rounded-0 border-dark py-3" style="background-color: rgb(14,19,23);">
+                                    <h6 class="m-0" style="color: rgb(214,213,213);filter: brightness(200%);">Elements</h6>
+                                </div>
+                                <div class="card-body overflow-auto" style="padding: 4px;background-color: #191919;">
+                                    <div class="row" style="margin: 0px;width: 100%;">
+                                        <div id="DragRow" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Row</label></div>
+                                        </div>
+                                        <div id="DragCol" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Col</label></div>
+                                        </div>
+                                        <div id="DragImg" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Img</label></div>
+                                        </div>
+                                        <div id="DragH1" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Heading</label></div>
+                                        </div>
+                                        <div id="DragBtn" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Button</label></div>
+                                        </div>
+                                        <div id="Dragparagraph" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Text</label></div>
+                                        </div>
+                                        <div id="DragH2" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H2</label></div>
+                                        </div>
+                                        <div id="DragH3" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H3</label></div>
+                                        </div>
+                                        <div id="DragH4" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H4</label></div>
+                                        </div>
+                                        <div id="DragH5" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H5</label></div>
+                                        </div>
+                                        <div id="DragH6" draggable="true" ondragstart="onDragStart(event);" class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">H6</label></div>
+                                        </div>
+                                        <div class="col-6 d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-up" style="padding: 0px;margin-right: 0px;padding-right: 2px;padding-left: 2px;">
+                                            <div class="border rounded border-dark d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="width: 100%;padding: 10px;background-color: #1a2126;margin-bottom: 5px;"><i class="fa fa-image" style="font-size: 28px;color: #ffffff;"></i><label style="color: #ffffff;font-size: 13px;">Image</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8" style="min-height: 100%;height: 550px;">
+                            <div class="card shadow mb-4" style="margin: 0px;min-height: 100%;">
+                                <div class="card-header d-flex justify-content-between align-items-lg-center">
+                                    <div class="col-6" style="width: 50%;height: 20px;margin-right: 0px;padding: 0px;">
+                                        <h6 class="d-lg-flex align-items-lg-center m-0" style="color: #000000;filter: brightness(200%);height: 31px;">{% if is_post %} {{ build.build_name }} {% else %}Build_name {% endif %}</h6>
+                                    </div>
+                                    <div class="col-6 d-lg-flex justify-content-lg-end align-items-lg-center" style="padding: 0px;"><a href="/triggers/create"><i class="material-icons" data-aos="fade-right" data-aos-duration="500" data-aos-delay="3000" style="color: #ff4f00;margin-right: 5px;margin-left: 5px;">send</i></a><button class="btn btn-primary border-white d-lg-flex flex-row justify-content-lg-center align-items-lg-center py-0" data-aos="fade-right" data-aos-delay="500" type="button" style="background-color: #000000;width: auto;height: 31px;margin-right: 3px;margin-left: 3px;"><i class="material-icons d-lg-flex flex-row justify-content-lg-center" style="padding-right: 5px;height: 23px;width: 28px;font-size: 21px;color: #fcfafa;">save</i><label style="font-size: 13px;margin: 0px;">Save</label></button><a href='builds' class="btn btn-primary border-white d-lg-flex flex-row justify-content-lg-center align-items-lg-center build_to_list" role="button" data-aos="fade-right" data-aos-delay="500" style="background-color: #000000;width: auto;height: 31px;margin-right: 3px;margin-left: 3px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-bricks d-lg-flex flex-row justify-content-lg-center" style="padding-right: 5px;height: 23px;width: 22px;font-size: 21px;color: #fcfafa;">
+                                                <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5v-3zM3 4v2h4.5V4H3zm5.5 0v2H13V4H8.5zM3 10v2h4.5v-2H3zm5.5 0v2H13v-2H8.5zM1 1v2h3.5V1H1zm4.5 0v2H15V1H5.5zM1 7v2h3.5V7H1zm4.5 0v2h5V7h-5zm6 0v2H15V7h-3.5zM1 13v2h3.5v-2H1zm4.5 0v2h5v-2h-5zm6 0v2H15v-2h-3.5z"></path>
+                                            </svg><label style="font-size: 13px;margin: 0px;">All Builds</label></a>
+                                        <div class="dropdown no-arrow" data-aos="fade-right"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
+                                                <p class="text-center dropdown-header">Actions</p><a class="dropdown-item" href="#">New</a><a class="dropdown-item" href="#" style="color: rgb(190,150,9);">Reset</a>
+                                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#" style="color: rgb(227,25,25);">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body d-lg-flex justify-content-lg-center align-items-lg-center" style="background-color: rgb(230,230,247); max-height: 550px;">
+                                    {% if is_post %}  {{ build.build | safe}} 
+                                    {% else %}
+                                    <!-- <div id='BuildFrame' class="d-lg-flex d-xl-flex flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" onclick="BuildFrameSelected('BuildFrame')" ondragover="onDragOver(event);" ondrop="onDrop(event);" style="width: 500px;height: 500px;background-color: #ffffff;"></div> -->
+                                    <div id='BuildFrame' class="d-lg-flex d-xl-flex flex-column justify-content-lg-center justify-content-xl-center " onclick="BuildFrameSelected('BuildFrame')" ondragover="onDragOver(event);" ondrop="onDrop(event);" style="width: 500px;height: 500px;background-color: #ffffff;"></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 overflow-auto" style="min-height: 100%;background-color: #1a2126;height: 550px;">
+                            <div class="shadow card" data-aos="fade-left" style="background-color: #0e1317;color: #fcfafa;"><a class="btn btn-link text-left card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" href="#collapse-7" role="button" style="background-color: #000000;color: #ff4f00;font-size: 13px;filter: brightness(100%);">Frame Properties</a>
+                                <div class="collapse" id="collapse-7">
+                                    <div class="card-body">
+                                        <!--BFrame-->
+                                    <div id='BFrameProperties'>
+                                        <div class="row">
+                                            <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa; font-size: inherit;">Bg Image</label></div>
+                                            <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="MFBfImg" onfocusout='IBFocusoutImg("MFBfImg")' class="bg-light border-0 small" type="text" placeholder="None" style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                        </div>                                            
+                                        <div class="row">
+                                            <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">bg color</label></div>
+                                            <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="MFBColor" onfocusout='IBFocusoutColor("MFBColor")' type="color" style="width: 70px;"></div>
+                                        </div>                                            
+                                    </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div id="FrameProperties" class="border rounded-0 border-dark shadow card" data-aos="fade-left" style="background-color: #1a2126;"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" href="#collapse-5" role="button" style="background-color: #0e1317;color: #fcfafa;font-size: 13px;">FlexBox</a>
+                                <div class="collapse border rounded-0 border-dark" id="collapse-5" style="background-color: #191919;">
+                                    <div class="card-body">
+                                        <div class="row" style="margin-top: 3px;margin-bottom: 3px;">
+                                            <div onclick="pFlexAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-x-square-fill" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="None">
+                                                    <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
+                                                </svg></div>
+                                            <div onclick="pFlexAlign('initial')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Top">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0352 7.98797L13.0374 13.988L17.0374 13.9865L17.0352 7.98653L13.0352 7.98797Z" fill="currentColor" fill-opacity="0.5"></path>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.9996 4.01189L5.99963 4.01837L6.00038 6.01837L18.0004 6.01189L17.9996 4.01189Z" fill="currentColor"></path>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0374 19.9864L11.0321 7.98637L7.03207 7.98813L7.03736 19.9881L11.0374 19.9864Z" fill="currentColor"></path>
+                                                </svg></div>
+                                            <div onclick="pFlexAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Center">
+                                                    <path d="M13 9H17V15H13V9Z" fill="currentColor" fill-opacity="0.5"></path>
+                                                    <path d="M7 6H11V18H7V6Z" fill="currentColor"></path>
+                                                </svg></div>
+                                            <div onclick="pFlexAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Bottom">
+                                                    <path d="M13 10H17V16H13V10Z" fill="currentColor" fill-opacity="0.5"></path>
+                                                    <path d="M11 4H7V16H11V4Z" fill="currentColor"></path>
+                                                    <path d="M18 18H6V20H18V18Z" fill="currentColor"></path>
+                                                </svg></div>
+                                        </div>
+                                        <div class="row d-lg-flex justify-content-lg-end" style="margin-top: 3px;margin-bottom: 3px;">
+                                            <div onclick="pFlexAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Left">
+                                                    <path d="M8 13H14V17H8V13Z" fill="currentColor" fill-opacity="0.5"></path>
+                                                    <path d="M6 6H4V18H6V6Z" fill="currentColor"></path>
+                                                    <path d="M20 7H8V11H20V7Z" fill="currentColor"></path>
+                                                </svg></div>
+                                            <div onclick="pFlexAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Center">
+                                                    <path d="M9 13H15V17H9V13Z" fill="currentColor" fill-opacity="0.5"></path>
+                                                    <path d="M6 7H18V11H6V7Z" fill="currentColor"></path>
+                                                </svg></div>
+                                            <div onclick="pFlexAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Right">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9991 13.0039L9.99907 12.9911L9.99054 16.9911L15.9905 17.0039L15.9991 13.0039Z" fill="currentColor" fill-opacity="0.5"></path>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.978 18.0021L20.0036 6.00214L18.0036 5.99788L17.978 17.9979L19.978 18.0021Z" fill="currentColor"></path>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.9964 10.9851L15.9964 11.0107L16.0049 7.0107L4.00493 6.98512L3.9964 10.9851Z" fill="currentColor"></path>
+                                                </svg></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="FrameProperties" class="border rounded-0 border-dark shadow card" data-aos="fade-left" style="background-color: #1a2126;"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-tp" href="#collapse-tp" role="button" style="background-color: #0e1317;color: #fcfafa;font-size: 13px;">Template Properties</a>
+                                <div class="collapse border rounded-0 border-dark" id="collapse-tp" style="background-color: #191919;">
+                                    <div class="card-body">
+                                        <!--Template-->
+                                        <div id="TemplateProperties">
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa;">height</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="TNBHeight" onfocusout='TemplateBoxHeight("height", "TNBHeight")' type="text" placeholder="height..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa;">width</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="TNBWidth" onfocusout='TemplateBoxWidth("width", "TNBWidth")' type="text" placeholder="width..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>
+                                            <div class="row" style="margin-top: 3px;margin-bottom: 3px;">
+                                                <div onclick="tpTAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-x-square-fill" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="None">
+                                                        <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
+                                                    </svg></div>
+                                                <div onclick="tpTAlign('left')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-start" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Left">
+                                                        <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"></path>
+                                                        <path d="M3 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7z"></path>
+                                                    </svg></div>
+                                                <div onclick="tpTAlign('center')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-middle" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Center">
+                                                        <path d="M6 13a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v10zM1 8a.5.5 0 0 0 .5.5H6v-1H1.5A.5.5 0 0 0 1 8zm14 0a.5.5 0 0 1-.5.5H10v-1h4.5a.5.5 0 0 1 .5.5z"></path>
+                                                    </svg></div>
+                                                <div onclick="tpTAlign('right')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-end" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Right">
+                                                        <path fill-rule="evenodd" d="M14.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"></path>
+                                                        <path d="M13 7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"></path>
+                                                    </svg></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Font Size</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="TNBFontSize" onfocusout='TemplateBoxFontSize("TNBFontSize")' type="text" placeholder="Size..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>                                               
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Font color</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="TNBFontColor" onfocusout='TemplateBoxFontColor("TNBFontColor")' type="color" style="width: 70px;"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Bg color</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="TNB_BG_Color" onfocusout='TemplateBoxBGColor("TNB_BG_Color")' type="color" style="width: 70px;"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Delete</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><Button onclick="TemplatespDelete()">Remove</Button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border rounded-0 border-dark shadow card" data-aos="fade-left" style="background-color: #1a2126;"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="background-color: #0e1317;color: #fcfafa;font-size: 13px;">Template Pages</a>
+                                <div class="collapse border rounded-0 border-dark" id="collapse-8" style="background-color: #191919;height: 157px;">
+                                    <div class="card-body" style="height: 100%;">
+                                        <p style="color: #ff4f00;">Yes/No Form</p>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Decision Page</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><button onclick="ynf_build('YNFT_first')" style="width: 70px;">Show</button></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Email Page</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><button onclick="ynf_build('YNFT_second')" style="width: 70px;">Show</button></div>
+                                            </div><div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Thankyou Page</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><button onclick="ynf_build('YNFT_third')" style="width: 70px;">Show</button></div>
+                                            </div><div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">nothanks Page</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><button onclick="ynf_build('YNFT_fourth')" style="width: 70px;">Show</button></div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shadow card" data-aos="fade-left"><a class="btn btn-link text-left border rounded-0 border-dark card-header font-weight-bold" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-4" href="#collapse-4" role="button" style="background-color: #0e1317;color: #fcfafa;font-size: 13px;">Properties</a>
+                                <div class="collapse show border-dark" id="collapse-4" style="background-color: #191919;">
+                                    <div class="border rounded-0 border-dark card-body">                                        
+                                        <!--Normal-->
+                                        <div id="NormalProperties">
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa;">height</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="NBHeight" onfocusout='NormalBoxHeight("height", "NBHeight")' type="text" placeholder="height..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa;">width</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="NBWidth" onfocusout='NormalBoxWidth("width", "NBWidth")' type="text" placeholder="width..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>
+                                            <div class="row" id="NBIMAGE_Row" style="display: none;">
+                                                <div class="col-4 d-lg-flex justify-content-lg-center align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-start align-items-lg-center" style="color: #fcfafa; font-size: small;">Image URL</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="NBfImg" onfocusout='NBImageChangeURL("NBfImg")' class="bg-light border-0 small" type="text" placeholder="None" style="padding: 5px;margin: 3px;width: 100%;" inputmode="numeric"></div>
+                                            </div> 
+                                            <div class="row" style="margin-top: 3px;margin-bottom: 3px;">
+                                                <div onclick="pTAlign('inherit')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-x-square-fill" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="None">
+                                                        <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
+                                                    </svg></div>
+                                                <div onclick="pTAlign('left')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-start" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Left">
+                                                        <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"></path>
+                                                        <path d="M3 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7z"></path>
+                                                    </svg></div>
+                                                <div onclick="pTAlign('center')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-middle" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Center">
+                                                        <path d="M6 13a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v10zM1 8a.5.5 0 0 0 .5.5H6v-1H1.5A.5.5 0 0 0 1 8zm14 0a.5.5 0 0 1-.5.5H10v-1h4.5a.5.5 0 0 1 .5.5z"></path>
+                                                    </svg></div>
+                                                <div onclick="pTAlign('right')" class="col-3 d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-align-end" data-toggle="tooltip" data-bss-tooltip="" style="color: rgb(255,255,255);font-size: 22px;" title="Align Right">
+                                                        <path fill-rule="evenodd" d="M14.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"></path>
+                                                        <path d="M13 7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"></path>
+                                                    </svg></div>
+                                            </div>   
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Font Size</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input class="bg-light border-0 small" id="NBFontSize" onfocusout='NormalBoxFontSize("NBFontSize")' type="text" placeholder="size..." style="padding: 5px;margin: 3px;width: 70px;" inputmode="numeric"></div>
+                                            </div>                                         
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Font color</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="NBFontColor" onfocusout='NormalBoxFontColor("NBFontColor")' type="color" style="width: 70px;"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Bg color</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><input id="NB_BG_Color" onfocusout='NormalBoxBGColor("NB_BG_Color")' type="color" style="width: 70px;"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 d-lg-flex justify-content-lg-start align-items-lg-center"><label class="col-form-label d-lg-flex justify-content-lg-end" style="color: #fcfafa;">Delete</label></div>
+                                                <div class="col-8 d-lg-flex justify-content-lg-center align-items-lg-center"><Button onclick="pDelete()">Remove</Button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Templates-->
+            <!--Yes Form-->
+            <div id="yes_form_temp" style="display: none;">
+                <div id="YNFT_first" class="col" style="margin-top: 2%;margin-bottom: 2%;">
+                    <div id="1st_row_heading" class="row">
+                        <div class="col d-lg-flex justify-content-lg-center">
+                            <h1 id="1st_heading" onclick="TempElementSelected('1st_heading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">More Discounts!</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 3px;">
+                        <div class="col-6 d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <div id="1st_choice_div" onclick="TempElementSelected('1st_choice_div', 'dummy');" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 50%;height: 70%;background: #f57070;">
+                                <p id="1st_choice" onclick="TempElementSelected('1st_choice', 'dummy'); ynf_yes_fnc();" contenteditable="True" style="text-align: center;width: fit-content;margin: 7px;padding: 3px;font-size: auto;">Yes, I need</p>
+                            </div>
+                        </div>
+                        <div class="col-6 d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <div id="2st_choice_div" onclick="TempElementSelected('2st_choice_div', 'dummy');" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 50%;height: 70%;background: #f57070;">
+                                <p id="2st_choice" onclick="TempElementSelected('2st_choice', 'dummy'); ynf_no_fnc();" contenteditable="True" style="text-align: center;width: fit-content;margin: 7px;padding: 3px;font-size: auto;">No thanks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="YNFT_second" class="col" style="margin-top: 2%;margin-bottom: 2%;">
+                    <div class="row">
+                        <div class="col d-lg-flex justify-content-lg-center">
+                            <h1 id="2nd_heading" onclick="TempElementSelected('2nd_heading', 'dummy');" contenteditable="True" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Only one step</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 3px;">
+                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <form method="POST" id="YNF_Form_SalesAnt" class="d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 100%;">
+                                <input type="hidden" name="s_v" id="s_v" value="1">
+                                <input type="hidden" name="u_y" id="u_y" value="Shimar">
+                                <input type="hidden" name="ng" id="ng" value="trigger1">
+                                <input name="c_e" id="2nd_emailinput" onclick="TempElementSelected('2nd_emailinput', 'dummy');" class="form-control" type="email" style="width: 55%;" placeholder="Email">
+                                <button id="2nd_emailbutton" onclick="TempElementSelected('2nd_emailbutton', 'dummy'); ynf_emailsubmit_fnc();" contenteditable="True" class="btn btn-primary border-white d-lg-flex justify-content-lg-center align-items-lg-center py-0" type="button" style="width: 20%;height: 38px;background: #f57070;"><label style="font-size: 15px;margin: 0px;">Next</label></button></form>
+                        </div>
+                    </div>
+                </div>
+                <div id="YNFT_third" class="col" style="margin-top: 2%;margin-bottom: 2%;">
+                    <div class="row">
+                        <div class="col d-lg-flex justify-content-lg-center">
+                            <h1 id="3rd_heading" onclick="TempElementSelected('3rd_heading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Thank you!</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 3px;">
+                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <h1 id="3rd_subheading" onclick="TempElementSelected('3rd_subheading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(245,112,112);margin: 0px;font-size: 21px;">Check your Email for PROMO Code!</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="YNFT_fourth" class="col" style="margin-top: 2%;margin-bottom: 2%;">
+                    <div class="row">
+                        <div class="col d-lg-flex justify-content-lg-center">
+                            <h1 id="4th_heading" onclick="TempElementSelected('4th_heading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(103,103,103);">Ok fine!</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 3px;">
+                        <div class="col d-lg-flex justify-content-lg-center align-items-lg-center" style="height: fit-content;">
+                            <h1 id="4th_subheading" onclick="TempElementSelected('4th_subheading', 'dummy');" contenteditable="True" style="width: 100%;color: rgb(245,112,112);margin: 0px;font-size: 21px;">Thank you for your patience</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="yes_form_tempa" style="display: none;">
+                <form id="yn_form_id" style="width: 100%;">
+                    <div>
+                        <div class="form-row">
+                            <div class="col d-lg-flex justify-content-lg-center">
+                                <div class="form-check d-lg-flex" style="text-align: center;width: 10%;font-size: 18px;margin: 5px;margin-left: 5px;"><input class="form-check-input" type="radio" id="yes_radio_ynform" name="radio_ynform" value="Yes" style="text-align: center;"><label class="form-check-label" for="formCheck-1" style="font-size: 18px;text-align: center;">Yes</label></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col d-lg-flex justify-content-lg-center">
+                                <div class="form-check d-lg-flex" style="text-align: center;width: 10%;font-size: 18px;margin: 5px;margin-left: 5px;"><input class="form-check-input" type="radio" iid="no_radio_ynform" name="radio_ynform" value="No"><label class="form-check-label" for="formCheck-1">No</label></div>
+                            </div>
+                        </div><button class="btn btn-primary text-center d-lg-flex justify-content-lg-center jello animated" type="button" style="margin: 4px;width: 80%;margin-right: 10%;margin-left: 10%;">Submit</button>
+                        </div>
+                    </form>
+                    
+                </div>
+                    </div>
+                </div>
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/chart.min.js' %}"></script>
+    <script src="{% static 'assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{% static 'assets/js/Modal-commerce-popup-button.js' %}"></script>
+    <script src="{% static 'assets/js/Navbar---Apple.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/Drag.js' %}"></script>
+    <script src="{% static 'assets/AfterDrag.js' %}"></script>
+    <script src="{% static 'assets/builder.js' %}"></script>
+    <script src="{% static 'buildersetting.js' %}"></script>
+    <script src="{% static 'templates.js' %}"></script>
+    <script src="{% static 'custom_templates/ynf.js' %}"></script>
+    <script src="{% static 'custom_templates/template_properties.js' %}"></script>
+</body>
+
+</html>

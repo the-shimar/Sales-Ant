@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Triggers, UserTriggers
 from builder.models import Build
 from apikey.models import Subscription
+from user.models import Domains
 from django.contrib.auth import authenticate
 
 
@@ -16,7 +17,7 @@ def newTrigger(request):
                 user_trigger = UserTriggers( name=request.POST['TriggerName'],
                 user=request.user,
                 trigger_type=request.POST['TriggerType'] , 
-                website=Subscription.objects.get(user='shimar'),
+                website=Domains.objects.get(username=request.user),
                 build=request.POST['TriggerBuild'],
                 limit=request.POST['TriggerLimit'], )
                 
