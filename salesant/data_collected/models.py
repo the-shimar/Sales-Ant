@@ -12,6 +12,9 @@ class YNF_Form_List(models.Model):
 
 class DC_mail_user(models.Model):
     user = models.CharField(max_length=200, default='BuildUser')
+    name = models.CharField(max_length=200, default='BuildUser')
+    subject = models.CharField(max_length=200, default='BuildUser')
+    date = models.DateTimeField(auto_now_add=True)
     website = models.CharField(max_length=200, default='Website')
     trigger_name = models.CharField(max_length=200, default='trigger_name')
     message = models.TextField(default='None')
@@ -22,6 +25,8 @@ class DC_mail_user(models.Model):
 
 class DC_new_subscriber(models.Model):
     user = models.CharField(max_length=200, default='BuildUser')
+    subject = models.CharField(max_length=200, default='BuildUser')
+    date = models.DateTimeField(auto_now_add=True)
     website = models.CharField(max_length=200, default='Website')
     trigger_name = models.CharField(max_length=200, default='trigger_name')
     message = models.TextField(default='None')

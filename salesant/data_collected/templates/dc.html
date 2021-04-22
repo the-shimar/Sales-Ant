@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav flex-grow-1 justify-content-between">
                     <li class="nav-item d-lg-flex justify-content-lg-center align-items-lg-center d-none d-xs-block d-md-block"><a class="nav-link d-lg-flex justify-content-lg-center align-items-lg-center" href="/"><i class="material-icons apple-logo" style="font-size: 28px;">multiline_chart</i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'dc_index' %}">Data</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'build' %}">Builder</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'newTrigger' %}">Triggers</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'apigenerate' %}">API Services</a></li>
@@ -89,7 +89,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><textarea name="message" class="form-control" style="margin-top: 5px;margin-bottom: 5px;" placeholder="Message"></textarea><textarea name="promo_code" class="form-control" style="margin-top: 5px;margin-bottom: 5px;" placeholder="Promo code"></textarea>
+                                        </div>
+                                        <input type="text" name="mu_name" placeholder="Name" style="width: 100%;">
+                                        <input type="text" name="mu_subject" placeholder="Subject" style="width: 100%;">
+                                        <textarea name="message" class="form-control" style="margin-top: 5px;margin-bottom: 5px;" placeholder="Message"></textarea><textarea name="promo_code" class="form-control" style="margin-top: 5px;margin-bottom: 5px;" placeholder="Promo code"></textarea>
                                         <div class="form-row">
                                             <div class="col d-lg-flex justify-content-lg-end align-items-lg-center"><button class="btn btn-primary" type="submit">Send</button></div>
                                         </div>
@@ -176,10 +179,12 @@
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col">
-                                                        <div class="form-group"><textarea name="message" class="form-control" style="margin-top: 5px;margin-bottom: 5px;" placeholder="Message"></textarea></div>
+                                                        <div class="form-group">
+                                                            <input type="text" name="ss_subject" placeholder="Subject" style="width: 100%;">
+                                                        <textarea name="promo_code" class="form-control" style="margin-top: 5px;margin-bottom: 5px;" placeholder="Promo code"></textarea></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="form-group"><textarea name="promo_code" class="form-control" style="margin-top: 5px;margin-bottom: 5px;" placeholder="Promo code"></textarea></div>
+                                                        <div class="form-group"><textarea name="message" class="form-control" style="margin-top: 5px;margin-bottom: 5px; min-height: 110px;" placeholder="Message"></textarea></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
